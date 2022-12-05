@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetSynthese
 {
-    public partial class Form1 : Form
+    public partial class MonHotel : Form
     {
-        public Form1()
+        public MonHotel()
         {
             InitializeComponent();
         }

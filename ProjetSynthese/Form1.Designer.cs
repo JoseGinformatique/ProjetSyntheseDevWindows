@@ -1,6 +1,6 @@
 ﻿namespace ProjetSynthese
 {
-    partial class Form1
+    partial class MonHotel
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -51,15 +51,15 @@
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MonHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "MonHotel";
+            this.Text = "MonHotel";
             this.ResumeLayout(false);
             this.PerformLayout();
 
