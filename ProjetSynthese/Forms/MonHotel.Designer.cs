@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MonHotel));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.TarifsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.TarifsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ongletsOuvertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,26 +44,15 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.TarifsToolStripMenuItem,
             this.ClientToolStripMenuItem,
-            this.AdminToolStripMenuItem});
+            this.AdminToolStripMenuItem,
+            this.ongletsOuvertsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.MdiWindowListItem = this.ongletsOuvertsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(895, 27);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ClientToolStripMenuItem
-            // 
-            this.ClientToolStripMenuItem.Name = "ClientToolStripMenuItem";
-            this.ClientToolStripMenuItem.Size = new System.Drawing.Size(135, 23);
-            this.ClientToolStripMenuItem.Text = "Se connecter client";
-            this.ClientToolStripMenuItem.Click += new System.EventHandler(this.électionToolStripMenuItem_Click);
-            // 
-            // AdminToolStripMenuItem
-            // 
-            this.AdminToolStripMenuItem.Name = "AdminToolStripMenuItem";
-            this.AdminToolStripMenuItem.Size = new System.Drawing.Size(194, 23);
-            this.AdminToolStripMenuItem.Text = "Se connecter Administrateur";
             // 
             // TarifsToolStripMenuItem
             // 
@@ -70,15 +61,38 @@
             this.TarifsToolStripMenuItem.Text = "Nos tarifs";
             this.TarifsToolStripMenuItem.Click += new System.EventHandler(this.TarifsToolStripMenuItem_Click);
             // 
+            // ClientToolStripMenuItem
+            // 
+            this.ClientToolStripMenuItem.Name = "ClientToolStripMenuItem";
+            this.ClientToolStripMenuItem.Size = new System.Drawing.Size(135, 23);
+            this.ClientToolStripMenuItem.Text = "Se connecter client";
+            this.ClientToolStripMenuItem.Click += new System.EventHandler(this.ClientToolStripMenuItem_Click);
+            // 
+            // AdminToolStripMenuItem
+            // 
+            this.AdminToolStripMenuItem.Name = "AdminToolStripMenuItem";
+            this.AdminToolStripMenuItem.Size = new System.Drawing.Size(194, 23);
+            this.AdminToolStripMenuItem.Text = "Se connecter Administrateur";
+            this.AdminToolStripMenuItem.Click += new System.EventHandler(this.AdminToolStripMenuItem_Click);
+            // 
+            // ongletsOuvertsToolStripMenuItem
+            // 
+            this.ongletsOuvertsToolStripMenuItem.Name = "ongletsOuvertsToolStripMenuItem";
+            this.ongletsOuvertsToolStripMenuItem.Size = new System.Drawing.Size(119, 23);
+            this.ongletsOuvertsToolStripMenuItem.Text = "Onglets ouverts";
+            // 
             // MonHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 522);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MonHotel";
-            this.Text = "MonHotel";
+            this.Text = "Hotel-Jose";
+            this.Load += new System.EventHandler(this.MonHotel_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -92,6 +106,7 @@
         private System.Windows.Forms.ToolStripMenuItem ClientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AdminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TarifsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ongletsOuvertsToolStripMenuItem;
     }
 }
 

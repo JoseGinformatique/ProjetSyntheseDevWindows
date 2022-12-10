@@ -8,21 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetSynthese
+namespace ProjetSynthese.Forms
 {
-    public partial class MonHotel : Form
+    public partial class Tarifs : Form
     {
-        public MonHotel()
+        public Tarifs()
         {
             InitializeComponent();
         }
 
-        private void électionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void TarifsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Tarif_Click(object sender, EventArgs e)
         {
 
         }

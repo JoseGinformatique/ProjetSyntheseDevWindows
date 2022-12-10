@@ -46,23 +46,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\TrieurDeTableau.cs" />
+    <Compile Include="Classes\Static_GererReservations.cs" />
+    <Compile Include="Classes\DelegueTrieurDeTableau.cs" />
     <Compile Include="Classes\Static_Autentification.cs" />
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\Administrateur.cs" />
     <Compile Include="Classes\Reservation.cs" />
     <Compile Include="Classes\Chambre.cs" />
     <Compile Include="Classes\Salle.cs" />
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\ConClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\ConClient.Designer.cs">
+      <DependentUpon>ConClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConAdmin.Designer.cs">
+      <DependentUpon>ConAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MonHotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MonHotel.Designer.cs">
+      <DependentUpon>MonHotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tarifs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tarifs.Designer.cs">
+      <DependentUpon>Tarifs.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ConAdmin.resx">
+      <DependentUpon>ConAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConClient.resx">
+      <DependentUpon>ConClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MonHotel.resx">
+      <DependentUpon>MonHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tarifs.resx">
+      <DependentUpon>Tarifs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

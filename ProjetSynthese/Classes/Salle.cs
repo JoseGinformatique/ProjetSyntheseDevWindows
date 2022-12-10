@@ -8,14 +8,14 @@ namespace ProjetSynthese
 {
     internal class Salle: Reservation
     {
-        private string type;
+        private string nom;
         private int duree;
         private bool status;
 
-        public string Type
+        public string Nom
         {
-            get { return type; }
-            set { type = value; }
+            get { return nom; }
+            set { nom = value; }
         }
         public int Duree
         {
@@ -28,10 +28,10 @@ namespace ProjetSynthese
             set { status = value; }
         }
 
-        public Salle(int p_num_reservation, int p_prix, string p_type, int p_duree, bool p_status)
+        public Salle(int p_num_reservation, int p_prix, string p_nom, int p_duree, bool p_status)
             : base(p_num_reservation, p_prix)
         {
-            this.Type = p_type;
+            this.Nom = p_nom;
             this.Duree = p_duree;
             this.Status = p_status;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetSynthese
 {
-    public class TrieurDeTableau
+    public class DelegueTrieurDeTableau
     {
         private delegate void DelegateTri(int[] tableau);
 
