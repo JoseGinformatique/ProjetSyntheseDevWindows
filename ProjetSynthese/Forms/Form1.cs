@@ -16,5 +16,15 @@ namespace ProjetSynthese
         {
             InitializeComponent();
         }
+
+        private void électionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TarifsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
