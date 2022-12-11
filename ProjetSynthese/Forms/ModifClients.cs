@@ -10,22 +10,23 @@ using System.Windows.Forms;
 
 namespace ProjetSynthese.Forms
 {
-    public partial class Reservation : Form
+    public partial class ModifClient : Form
     {
-        public Reservation()
+        public ModifClient()
         {
             InitializeComponent();
         }
 
-        private void Reservation_Load(object sender, EventArgs e)
+        private void ModifClient_Load(object sender, EventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Votre numéro de réservation est le: XXXXXXX \n Merci d'avoir fait affaire avec Hotel Jose!");
-            this.Close();
+            NouveauClient formulaire = new NouveauClient(); // Création d'une instance 
+            formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
+            formulaire.Show(); // affichage du formulaire enfant
             
         }
     }

@@ -21,5 +21,13 @@ namespace ProjetSynthese.Forms
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ModifClient formulaire = new ModifClient(); // Création d'une instance 
+            formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
+            formulaire.Show(); // affichage du formulaire enfant
+            this.Close();
+        }
     }
 }

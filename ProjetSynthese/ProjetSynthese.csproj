@@ -67,6 +67,12 @@
     <Compile Include="Forms\ConAdmin.Designer.cs">
       <DependentUpon>ConAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ModifClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModifClients.Designer.cs">
+      <DependentUpon>ModifClients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GereRes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConClient.resx">
       <DependentUpon>ConClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModifClients.resx">
+      <DependentUpon>ModifClients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reservation.resx">
       <DependentUpon>Reservation.cs</DependentUpon>

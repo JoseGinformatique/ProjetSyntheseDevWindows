@@ -15,7 +15,7 @@ temps varchar(20),
 )
 GO
 CREATE TABLE TarifsSalles(
-nom varchar(9),
+nom varchar(20),
 Prix INT,
 temps varchar(20),
 )
@@ -25,7 +25,6 @@ CREATE TABLE Chambres(
 NumeroReservation INT PRIMARY KEY,
 Prix INT,
 [Type] VARCHAR(20),
-Duree INT,
 [Status] BIT,
 )
 GO
@@ -34,7 +33,6 @@ CREATE TABLE Salles(
 NumeroReservation INT PRIMARY KEY,
 Prix INT,
 nom VARCHAR(20),
-Duree INT,
 [Status] BIT,
 )
 GO
@@ -56,7 +54,25 @@ prenom VARCHAR (20)
 )
 GO
 
-INSERT INTO Chambres VALUES(123456, 100, 'Régulière', 1, 1)
+INSERT INTO Chambres
+VALUES	(01, 100, 'Régulière', 1),
+		(02, 100, 'Régulière', 0),
+		(03, 100, 'Régulière', 1),
+		(04, 100, 'Régulière', 0),
+		(05, 200, 'Suite', 0),
+		(06, 200, 'Suite', 0),
+		(07, 200, 'Suite', 0),
+		(08, 200, 'Suite', 0)
+GO
+
+INSERT INTO Salles
+VALUES	(01, 50, 'Piscine', 1),
+		(02, 200, 'Cinema A', 0),
+		(03, 200, 'Cinema B', 1),
+		(04, 100, 'Salle de reunions A', 1),
+		(05, 100, 'Salle de reunions B', 0)
+
+GO
 
 INSERT INTO TarifsChambres
 VALUES	('Suite', 200,'par jour'),
