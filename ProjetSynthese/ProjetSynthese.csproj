@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,6 +67,24 @@
     <Compile Include="Forms\ConAdmin.Designer.cs">
       <DependentUpon>ConAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GereRes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GereRes.Designer.cs">
+      <DependentUpon>GereRes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reservation.Designer.cs">
+      <DependentUpon>Reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NouveauClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NouveauClient.Designer.cs">
+      <DependentUpon>NouveauClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MonHotel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +104,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConClient.resx">
       <DependentUpon>ConClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reservation.resx">
+      <DependentUpon>Reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GereRes.resx">
+      <DependentUpon>GereRes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NouveauClient.resx">
+      <DependentUpon>NouveauClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MonHotel.resx">
       <DependentUpon>MonHotel.cs</DependentUpon>

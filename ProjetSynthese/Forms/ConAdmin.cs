@@ -21,5 +21,12 @@ namespace ProjetSynthese.Forms
         {
 
         }
+
+        private void Connection_Click(object sender, EventArgs e)
+        {
+            GereRes formulaire = new GereRes(); // Création d'une instance 
+            formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
+            formulaire.Show(); // affichage du formulaire enfant
+        }
     }
 }
