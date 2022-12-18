@@ -22,10 +22,12 @@ namespace ProjetSynthese.Forms
         {
             button1.Text = "Reserver!";
             button2.Visible = false;
+            label1.Text = "Veuillez choisir un client existant ou revenez sur l'onglet \"Gerer les reservations\" pour ajouter un nouveau";
         }
 
         private void ModifClient_Load(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
             //Ouvre une connection avec la base de donné avec une commande
             SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("SELECT * from Clients");
 
@@ -78,9 +80,11 @@ namespace ProjetSynthese.Forms
                        
                         resultat.Close();
                         this.Close();
+                        MessageBox.Show("veuillez raffraichir la page pour voir les changements");
                         break;
                     }
                 }
+
             }
             else
             {
@@ -107,6 +111,46 @@ namespace ProjetSynthese.Forms
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //bool ver = true;
+            int index = dataGridView1.CurrentCell.RowIndex;
+            DataGridViewRow row = dataGridView1.Rows[index];
+            string num_cl = row.Cells[0].Value.ToString();
+
+            foreach (Client cl in Static_Autentification.LsClients)
+            {
+                //MessageBox.Show(ch.Status.ToString())
+                if (num_cl == cl.Num_client.ToString())
+                {
+                    
+                    //verifier que le client n'a presentement pas reservé de chambre ou salle
+                    SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase(
+                        "SELECT * FROM Reservations\r\nWHERE client = '" + cl.Num_client + "'");
+
+                    if (resultat.HasRows) //On vérifie si la table n'est pas vide
+                    {
+                        MessageBox.Show("Le client choisi ne peut pas être supprimé, car il a presentement reservé une chambre ou une salle, \n" +
+                            "Veuillez marquer comme libre les chambres ou salles reservés par le client et recomencez");
+                        
+                    }
+                    else
+                    {
+                        //On change les valeur dans la base de données pour que le client soit aussi supprimé
+                        SqlDataReader resultat2 = Static_Autentification.OuvrirConnectionBase("DELETE FROM Clients\r\nWHERE num_client = " + cl.Num_client);
+                        MessageBox.Show("Le client à bien été supprimé veuillez raffraichir pour voir le changement");
+                        //ver = false; // Client trouvé et supprimé, alors pas besoin du message d'erreur
+                        //On supprime le client dans la liste des clients
+                        Static_Autentification.LsClients.Remove(cl);
+                        resultat2.Close();
+                    }
+                    break;
+                    resultat.Close();
+                }
+            }
+            //if (ver) { MessageBox.Show("Aucun clien avec ce numero n'a été trouvé"); }
         }
     }
 }

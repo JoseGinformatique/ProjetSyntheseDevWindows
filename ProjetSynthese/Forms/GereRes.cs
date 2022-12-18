@@ -21,7 +21,7 @@ namespace ProjetSynthese.Forms
 
         public void GereRes_Load(object sender, EventArgs e)
         {
-            label3.Text = "Vous êtes sur le compte de: " + admin.Prenom + " " +  admin.Nom + " - Gere les Reservations";
+            label3.Text = "Vous êtes sur le compte de: " + admin.Prenom + " " +  admin.Nom + " - Gerer les Reservations";
 
             dataGridViewChambres.Rows.Clear();
             dataGridViewSalles.Rows.Clear();
@@ -90,7 +90,7 @@ namespace ProjetSynthese.Forms
             int index = dataGridViewChambres.CurrentCell.RowIndex;
             DataGridViewRow row = dataGridViewChambres.Rows[index];
             string num_ch = row.Cells[0].Value.ToString();
-            //MessageBox.Show(num_ch);
+            
 
             foreach (Chambre ch in Static_GererReservations.LsChambre)
             {
@@ -121,6 +121,41 @@ namespace ProjetSynthese.Forms
         public void AdminSurPage(Administrateur adm)
         {
             admin = adm;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            bool ver = true;
+            int index = dataGridViewChambres.CurrentCell.RowIndex;
+            DataGridViewRow row = dataGridViewChambres.Rows[index];
+            string num_ch = row.Cells[0].Value.ToString();
+
+            foreach (Chambre ch in Static_GererReservations.LsChambre)
+            {
+                //MessageBox.Show(ch.Status.ToString())
+                if (num_ch == ch.Num_Reservation && ch.Status)
+                {
+
+                    ch.Status = false;
+
+                    //On change les valeur dans la base de données pour que la chambre apparaise comme occupée
+                    //On instacie aussi cet evenement dans la "troisième" table qui suit la trace du numero de reservation et du numero du client
+                    SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("UPDATE Chambres SET [Status] = 0 WHERE NumeroReservation = '"
+                        + ch.Num_Reservation + "'" + "\nDELETE FROM Reservations\r\nWHERE num_reservation = '" + ch.Num_Reservation + "'");
+
+                    resultat.Close();
+                    MessageBox.Show("La chambre à bien été marquée comme libre veuillez raffraichir pour voir le changement");
+
+                    ver = false;
+                    break;
+                }
+            }
+            if (ver) { MessageBox.Show("Veuillez choisir une chambre qui est occupée"); }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

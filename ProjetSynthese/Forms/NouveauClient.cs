@@ -38,7 +38,7 @@ namespace ProjetSynthese.Forms
                         cl.Num_client += 1;
                     }
                 }
-                MessageBox.Show(cl.Num_client.ToString());
+                
 
                 cl.Nom = textBoxNom.Text;
                 cl.Prenom = textBoxPrenom.Text;
@@ -51,6 +51,8 @@ namespace ProjetSynthese.Forms
                 SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase(
                     "INSERT INTO Clients\nVALUES\t(" + cl.Num_client + ", '" + cl.Mot_de_passe + "', '" + cl.Nom + "', '" + cl.Prenom + "', " + cl.Age + ")");
                 resultat.Close();
+
+                MessageBox.Show("Le compte a bien été crée voici les informations: \n" + cl.ToString());
 
                 Reservation formulaire = new Reservation(); // Création d'une instance 
                 formulaire.MdiParent = this.MdiParent; // définir le formulaire parent

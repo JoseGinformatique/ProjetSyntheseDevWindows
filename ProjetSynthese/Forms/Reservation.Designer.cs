@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.labelErr = new System.Windows.Forms.Label();
+            this.buttonAnnuler = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxRes
@@ -85,12 +86,24 @@
             this.labelErr.Size = new System.Drawing.Size(0, 13);
             this.labelErr.TabIndex = 16;
             // 
+            // buttonAnnuler
+            // 
+            this.buttonAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnnuler.Location = new System.Drawing.Point(175, 253);
+            this.buttonAnnuler.Name = "buttonAnnuler";
+            this.buttonAnnuler.Size = new System.Drawing.Size(265, 39);
+            this.buttonAnnuler.TabIndex = 2;
+            this.buttonAnnuler.Text = "Annuler";
+            this.buttonAnnuler.UseVisualStyleBackColor = true;
+            this.buttonAnnuler.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 370);
             this.Controls.Add(this.labelErr);
+            this.Controls.Add(this.buttonAnnuler);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxRes);
@@ -109,5 +122,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelErr;
+        private System.Windows.Forms.Button buttonAnnuler;
     }
 }
