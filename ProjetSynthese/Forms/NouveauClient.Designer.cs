@@ -52,7 +52,7 @@
             this.label1.Location = new System.Drawing.Point(180, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(139, 24);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Nouveau Client";
             // 
             // textBoxNom
@@ -61,7 +61,8 @@
             this.textBoxNom.Location = new System.Drawing.Point(139, 137);
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(213, 29);
-            this.textBoxNom.TabIndex = 1;
+            this.textBoxNom.TabIndex = 0;
+            this.textBoxNom.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
             // 
             // label2
             // 
@@ -70,7 +71,7 @@
             this.label2.Location = new System.Drawing.Point(135, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 24);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Nom";
             // 
             // label3
@@ -80,7 +81,7 @@
             this.label3.Location = new System.Drawing.Point(135, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 24);
-            this.label3.TabIndex = 0;
+            this.label3.TabIndex = 7;
             this.label3.Text = "Prénom";
             // 
             // textBoxPrenom
@@ -98,7 +99,7 @@
             this.label4.Location = new System.Drawing.Point(135, 382);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 24);
-            this.label4.TabIndex = 0;
+            this.label4.TabIndex = 9;
             this.label4.Text = "Date de naissance";
             // 
             // textBoxmdp
@@ -107,7 +108,7 @@
             this.textBoxmdp.Location = new System.Drawing.Point(139, 311);
             this.textBoxmdp.Name = "textBoxmdp";
             this.textBoxmdp.Size = new System.Drawing.Size(213, 29);
-            this.textBoxmdp.TabIndex = 1;
+            this.textBoxmdp.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
@@ -115,7 +116,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(139, 409);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(213, 24);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // label5
             // 
@@ -124,7 +125,7 @@
             this.label5.Location = new System.Drawing.Point(135, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 24);
-            this.label5.TabIndex = 0;
+            this.label5.TabIndex = 8;
             this.label5.Text = "Mot de passe";
             // 
             // button1
@@ -133,7 +134,7 @@
             this.button1.Location = new System.Drawing.Point(139, 470);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 35);
-            this.button1.TabIndex = 3;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Confirmer";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

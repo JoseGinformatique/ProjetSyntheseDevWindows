@@ -24,10 +24,39 @@ namespace ProjetSynthese.Forms
 
         private void Connection_Click(object sender, EventArgs e)
         {
-            GereRes formulaire = new GereRes(); // Création d'une instance 
-            formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
-            formulaire.Show(); // affichage du formulaire enfant
-            this.Close(); 
+            labelErrMdp.Text = string.Empty;
+            bool b_num, b_ver;
+            b_ver = false;
+            b_num = Static_Autentification.VerifierRegex("^[0-9]{6}$", Numero_admin, labelErrNum, "Votre numero doit être un chiffre à 6 caractères");
+
+            if (b_num)
+            {
+                foreach (Administrateur ad in Static_Autentification.LsAdmin)
+                {
+                    if (b_num && Int32.Parse(Numero_admin.Text) == ad.Num_admin && MotDePasse.Text == ad.Mot_de_passe)
+                    {
+
+                        GereRes formulaire = new GereRes(); // Création d'une instance 
+                        formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
+                        formulaire.Show(); // affichage du formulaire enfant
+                        this.Close();
+
+                        this.Close();
+                        break;
+                    }
+                }
+            }
+            if (!b_ver && b_num)
+            {
+                labelErrMdp.ForeColor = Color.Red;
+                labelErrMdp.Text = "Aucun Administrateur n'a été trouvé avec ce numero ou le mot de passe ne correspond pas";
+            }
+            
+        }
+
+        private void Numero_admin_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

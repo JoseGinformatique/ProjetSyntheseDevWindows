@@ -61,7 +61,7 @@ namespace ProjetSynthese.Forms
             if (!b_ver && b_num) 
             {
                 labelErrMdp.ForeColor= Color.Red;
-                labelErrMdp.Text = "Aucun utilisateur n'a été trouvé avec ce nom ou le mot de passe ne correspond pas";
+                labelErrMdp.Text = "Aucun utilisateur n'a été trouvé avec ce numéro ou le mot de passe ne correspond pas";
             }
         }
     }

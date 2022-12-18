@@ -146,8 +146,6 @@ namespace ProjetSynthese.Forms
                         labelErr.Text = "Aucune Salle de avec cette description n'est disponible pour réserver";
                     }
                 }
-
-
             }
             
         }
