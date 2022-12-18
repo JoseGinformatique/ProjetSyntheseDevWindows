@@ -38,10 +38,11 @@ namespace ProjetSynthese.Forms
 
                         GereRes formulaire = new GereRes(); // Création d'une instance 
                         formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
+                        formulaire.AdminSurPage(ad);
                         formulaire.Show(); // affichage du formulaire enfant
-                        this.Close();
 
                         this.Close();
+
                         break;
                     }
                 }

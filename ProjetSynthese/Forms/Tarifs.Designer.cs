@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tarifs));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Tarif = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tarif = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -54,19 +54,8 @@
             this.Column3});
             this.dataGridView1.Location = new System.Drawing.Point(53, 122);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(354, 102);
+            this.dataGridView1.Size = new System.Drawing.Size(343, 102);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Tarif
-            // 
-            this.Tarif.AutoSize = true;
-            this.Tarif.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tarif.Location = new System.Drawing.Point(49, 21);
-            this.Tarif.Name = "Tarif";
-            this.Tarif.Size = new System.Drawing.Size(191, 29);
-            this.Tarif.TabIndex = 1;
-            this.Tarif.Text = "Voici nos tarifs!";
-            this.Tarif.Click += new System.EventHandler(this.Tarif_Click);
             // 
             // Column1
             // 
@@ -82,6 +71,17 @@
             // 
             this.Column3.HeaderText = "Temps";
             this.Column3.Name = "Column3";
+            // 
+            // Tarif
+            // 
+            this.Tarif.AutoSize = true;
+            this.Tarif.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tarif.Location = new System.Drawing.Point(49, 21);
+            this.Tarif.Name = "Tarif";
+            this.Tarif.Size = new System.Drawing.Size(191, 29);
+            this.Tarif.TabIndex = 1;
+            this.Tarif.Text = "Voici nos tarifs!";
+            this.Tarif.Click += new System.EventHandler(this.Tarif_Click);
             // 
             // label1
             // 
@@ -114,7 +114,7 @@
             this.dataGridViewTextBoxColumn3});
             this.dataGridView2.Location = new System.Drawing.Point(53, 278);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(354, 123);
+            this.dataGridView2.Size = new System.Drawing.Size(343, 123);
             this.dataGridView2.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1

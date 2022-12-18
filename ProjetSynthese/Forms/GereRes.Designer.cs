@@ -44,10 +44,13 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonRafraichir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChambres)).BeginInit();
             this.SuspendLayout();
@@ -59,10 +62,11 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dataGridViewSalles.Location = new System.Drawing.Point(590, 172);
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewSalles.Location = new System.Drawing.Point(652, 172);
             this.dataGridViewSalles.Name = "dataGridViewSalles";
-            this.dataGridViewSalles.Size = new System.Drawing.Size(439, 379);
+            this.dataGridViewSalles.Size = new System.Drawing.Size(543, 379);
             this.dataGridViewSalles.TabIndex = 0;
             // 
             // dataGridViewChambres
@@ -72,10 +76,11 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column5});
             this.dataGridViewChambres.Location = new System.Drawing.Point(78, 172);
             this.dataGridViewChambres.Name = "dataGridViewChambres";
-            this.dataGridViewChambres.Size = new System.Drawing.Size(439, 379);
+            this.dataGridViewChambres.Size = new System.Drawing.Size(543, 379);
             this.dataGridViewChambres.TabIndex = 0;
             this.dataGridViewChambres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChambres_CellContentClick);
             // 
@@ -93,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(586, 136);
+            this.label2.Location = new System.Drawing.Point(648, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 24);
             this.label2.TabIndex = 1;
@@ -123,7 +128,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(590, 577);
+            this.button3.Location = new System.Drawing.Point(652, 577);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(202, 53);
             this.button3.TabIndex = 2;
@@ -133,7 +138,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(827, 577);
+            this.button4.Location = new System.Drawing.Point(889, 577);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(202, 53);
             this.button4.TabIndex = 2;
@@ -191,6 +196,11 @@
             this.Column4.HeaderText = "Status";
             this.Column4.Name = "Column4";
             // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Numéro du client";
+            this.Column5.Name = "Column5";
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Numéro de Salle";
@@ -211,13 +221,30 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Status";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Numéro du client";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // buttonRafraichir
+            // 
+            this.buttonRafraichir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRafraichir.Location = new System.Drawing.Point(544, 21);
+            this.buttonRafraichir.Name = "buttonRafraichir";
+            this.buttonRafraichir.Size = new System.Drawing.Size(401, 53);
+            this.buttonRafraichir.TabIndex = 2;
+            this.buttonRafraichir.Text = "Raffraichir la page";
+            this.buttonRafraichir.UseVisualStyleBackColor = true;
+            this.buttonRafraichir.Click += new System.EventHandler(this.GereRes_Load);
+            // 
             // GereRes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 783);
+            this.ClientSize = new System.Drawing.Size(1241, 783);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonRafraichir);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button2);
@@ -255,9 +282,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button buttonRafraichir;
     }
 }

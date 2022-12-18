@@ -60,7 +60,6 @@ SELECT NumeroReservation from Chambres
 union
 SELECT Numeroreservation from Salles
 GO
-SELECT * FROM V_Ch_SL
 
 
 CREATE TABLE Reservations(
@@ -70,34 +69,35 @@ CONSTRAINT fk_client FOREIGN KEY (client) REFERENCES Clients(num_client)
 )
 GO
 
-CREATE TRIGGER trig_reserv
-ON Reservations AFTER INSERT
-AS BEGIN
-	IF (SELECT num_reservation FROM inserted) NOT IN (SELECT NumeroReservation FROM V_Ch_SL)
-	BEGIN
-		RAISERROR('Le numero de reservation ne correspond pas a aucune salla ni chambre', 1, 1)
-		ROLLBACK TRANSACTION
-	END
-END
+CREATE VIEW V_CHAMBRES
+AS
+SELECT NumeroReservation, Prix, [Type], [Status], client FROM Chambres
+left JOIN Reservations ON Chambres.NumeroReservation = Reservations.num_reservation
 GO
+CREATE VIEW V_SALLES
+AS
+SELECT NumeroReservation, Prix, nom , [Status], client FROM Salles
+left JOIN Reservations ON Salles.NumeroReservation = Reservations.num_reservation
+GO
+
 
 INSERT INTO Chambres
 VALUES	('A1', 100, 'Régulière', 1),
-		('A2', 100, 'Régulière', 0),
-		('A3', 100, 'Régulière', 1),
+		('A2', 100, 'Régulière', 1),
+		('A3', 100, 'Régulière', 0),
 		('A4', 100, 'Régulière', 0),
-		('A5', 200, 'Suite', 0),
+		('A5', 200, 'Suite', 1),
 		('A6', 200, 'Suite', 0),
 		('A7', 200, 'Suite', 0),
 		('A8', 200, 'Suite', 0)
 GO
 
 INSERT INTO Salles
-VALUES	('B1', 50, 'Piscine', 1),
+VALUES	('B1', 50, 'Piscine', 0),
 		('B2', 200, 'Cinema A', 0),
-		('B3', 200, 'Cinema B', 1),
-		('B4', 100, 'Salle de reunions A', 1),
-		('B5', 100, 'Salle de reunions B', 0)
+		('B3', 200, 'Cinema B', 0),
+		('B4', 100, 'Salle de reunions A', 0),
+		('B5', 100, 'Salle de reunions B', 1)
 
 GO
 
@@ -117,7 +117,33 @@ VALUES	(100001, 'Password1', 'Stewart', 'Patrick', 82),
 		(100004, 'Password1', 'Berry', 'Halle', 53),
 		(100005, 'Password1', 'Lawrence', 'Jennifer', 32)
 
-INSERT INTO Reservations
-VALUES ('B5', 100004)
+INSERT INTO Administrateur
+VALUES	(200001, 'Password1', 'Michel', 'Jean'),
+		(200002, 'Password1', 'Jean', 'Billie'),
+		(200003, 'Password1', 'Card', 'Credit'),
+		(200004, 'Password1', 'Homes', 'Rachel'),
+		(200005, 'Password1', 'Trudeau', 'Pierre')
 
+INSERT INTO Reservations
+VALUES	('B5', 100004),
+		('A1', 100002),
+		('A2', 100001),
+		('A5', 100004)
+
+GO
+SELECT * FROM Chambres
 SELECT * FROM Reservations
+SELECT * FROM Salles
+SELECT * FROM Clients
+GO
+
+CREATE TRIGGER trig_reserv
+ON Reservations AFTER INSERT
+AS BEGIN
+	IF (SELECT num_reservation FROM inserted) NOT IN (SELECT NumeroReservation FROM V_Ch_SL)
+	BEGIN
+		RAISERROR('Le numero de reservation ne correspond pas a aucune salla ni chambre', 1, 1)
+		ROLLBACK TRANSACTION
+	END
+END
+GO
