@@ -35,7 +35,7 @@ namespace ProjetSynthese
             set { prenom = value; }
         }
 
-        public Administrateur(int p_num_admin, string p_mot_de_passe, string p_nom, string p_prenom)
+        public Administrateur(int p_num_admin = 123456, string p_mot_de_passe = "mdp", string p_nom = "nom", string p_prenom = "prenom")
         {
             this.Num_admin = p_num_admin;
             this.Mot_de_passe = p_mot_de_passe;

@@ -46,7 +46,7 @@
             this.Connection.Location = new System.Drawing.Point(87, 290);
             this.Connection.Name = "Connection";
             this.Connection.Size = new System.Drawing.Size(225, 32);
-            this.Connection.TabIndex = 0;
+            this.Connection.TabIndex = 2;
             this.Connection.Text = "Se connecter";
             this.Connection.UseVisualStyleBackColor = true;
             this.Connection.Click += new System.EventHandler(this.Connection_Click);
@@ -58,7 +58,7 @@
             this.label1.Location = new System.Drawing.Point(112, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 25);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Connection Client";
             // 
             // Numero_client
@@ -67,7 +67,7 @@
             this.Numero_client.Location = new System.Drawing.Point(87, 128);
             this.Numero_client.Name = "Numero_client";
             this.Numero_client.Size = new System.Drawing.Size(225, 29);
-            this.Numero_client.TabIndex = 2;
+            this.Numero_client.TabIndex = 0;
             // 
             // MotDePasse
             // 
@@ -75,7 +75,7 @@
             this.MotDePasse.Location = new System.Drawing.Point(87, 218);
             this.MotDePasse.Name = "MotDePasse";
             this.MotDePasse.Size = new System.Drawing.Size(225, 29);
-            this.MotDePasse.TabIndex = 2;
+            this.MotDePasse.TabIndex = 1;
             // 
             // label2
             // 
@@ -84,7 +84,7 @@
             this.label2.Location = new System.Drawing.Point(87, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 24);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Numéro de client";
             // 
             // label3
@@ -104,7 +104,7 @@
             this.Nouveau_client.Location = new System.Drawing.Point(132, 325);
             this.Nouveau_client.Name = "Nouveau_client";
             this.Nouveau_client.Size = new System.Drawing.Size(128, 18);
-            this.Nouveau_client.TabIndex = 1;
+            this.Nouveau_client.TabIndex = 4;
             this.Nouveau_client.Text = "Nouveau client";
             this.Nouveau_client.Click += new System.EventHandler(this.Nouveau_client_Click);
             // 

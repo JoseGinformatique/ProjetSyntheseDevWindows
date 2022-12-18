@@ -49,6 +49,7 @@
             this.comboBoxRes.Size = new System.Drawing.Size(265, 28);
             this.comboBoxRes.TabIndex = 0;
             this.comboBoxRes.Text = "Cliquez pour derrouler les options";
+            this.comboBoxRes.SelectedIndexChanged += new System.EventHandler(this.comboBoxRes_SelectedIndexChanged);
             // 
             // label1
             // 

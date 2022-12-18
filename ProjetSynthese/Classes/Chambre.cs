@@ -23,7 +23,7 @@ namespace ProjetSynthese
             set { status = value; }
         }
 
-        public Chambre(int p_num_reservation, int p_prix, string p_type, bool p_status)
+        public Chambre(string p_num_reservation = "xx", int p_prix = 100, string p_type = "type", bool p_status = false)
             :base(p_num_reservation, p_prix)
         {
             this.Type = p_type;

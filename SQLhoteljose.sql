@@ -22,7 +22,7 @@ temps varchar(20),
 GO
 
 CREATE TABLE Chambres(
-NumeroReservation INT PRIMARY KEY,
+NumeroReservation VARCHAR(2) PRIMARY KEY,
 Prix INT,
 [Type] VARCHAR(20),
 [Status] BIT,
@@ -30,7 +30,7 @@ Prix INT,
 GO
 
 CREATE TABLE Salles(
-NumeroReservation INT PRIMARY KEY,
+NumeroReservation VARCHAR(2) PRIMARY KEY,
 Prix INT,
 nom VARCHAR(20),
 [Status] BIT,
@@ -38,7 +38,7 @@ nom VARCHAR(20),
 GO
 
 CREATE TABLE Clients(
-num_client INT,
+num_client INT PRIMARY KEY,
 mot_de_passe VARCHAR(20),
 nom VARCHAR(20),
 prenom VARCHAR (20),
@@ -54,23 +54,50 @@ prenom VARCHAR (20)
 )
 GO
 
+CREATE VIEW V_Ch_SL
+AS
+SELECT NumeroReservation from Chambres
+union
+SELECT Numeroreservation from Salles
+GO
+SELECT * FROM V_Ch_SL
+
+
+CREATE TABLE Reservations(
+num_reservation VARCHAR(2),
+client INT
+CONSTRAINT fk_client FOREIGN KEY (client) REFERENCES Clients(num_client)
+)
+GO
+
+CREATE TRIGGER trig_reserv
+ON Reservations AFTER INSERT
+AS BEGIN
+	IF (SELECT num_reservation FROM inserted) NOT IN (SELECT NumeroReservation FROM V_Ch_SL)
+	BEGIN
+		RAISERROR('Le numero de reservation ne correspond pas a aucune salla ni chambre', 1, 1)
+		ROLLBACK TRANSACTION
+	END
+END
+GO
+
 INSERT INTO Chambres
-VALUES	(01, 100, 'Régulière', 1),
-		(02, 100, 'Régulière', 0),
-		(03, 100, 'Régulière', 1),
-		(04, 100, 'Régulière', 0),
-		(05, 200, 'Suite', 0),
-		(06, 200, 'Suite', 0),
-		(07, 200, 'Suite', 0),
-		(08, 200, 'Suite', 0)
+VALUES	('A1', 100, 'Régulière', 1),
+		('A2', 100, 'Régulière', 0),
+		('A3', 100, 'Régulière', 1),
+		('A4', 100, 'Régulière', 0),
+		('A5', 200, 'Suite', 0),
+		('A6', 200, 'Suite', 0),
+		('A7', 200, 'Suite', 0),
+		('A8', 200, 'Suite', 0)
 GO
 
 INSERT INTO Salles
-VALUES	(01, 50, 'Piscine', 1),
-		(02, 200, 'Cinema A', 0),
-		(03, 200, 'Cinema B', 1),
-		(04, 100, 'Salle de reunions A', 1),
-		(05, 100, 'Salle de reunions B', 0)
+VALUES	('B1', 50, 'Piscine', 1),
+		('B2', 200, 'Cinema A', 0),
+		('B3', 200, 'Cinema B', 1),
+		('B4', 100, 'Salle de reunions A', 1),
+		('B5', 100, 'Salle de reunions B', 0)
 
 GO
 
@@ -82,3 +109,15 @@ INSERT INTO TarifsSalles
 VALUES	('Piscine', 50, 'par heure'),
 		('Cinema', 200, 'par 3 heure'),
 		('Salle de reunions', 100, 'par heure')
+
+INSERT INTO Clients
+VALUES	(100001, 'Password1', 'Stewart', 'Patrick', 82),
+		(100002, 'Password1', 'Jackman', 'Hugh', 54),
+		(100003, 'Password1', 'Mckellen', 'Ian', 83),
+		(100004, 'Password1', 'Berry', 'Halle', 53),
+		(100005, 'Password1', 'Lawrence', 'Jennifer', 32)
+
+INSERT INTO Reservations
+VALUES ('B5', 100004)
+
+SELECT * FROM Reservations

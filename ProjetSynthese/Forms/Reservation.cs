@@ -24,9 +24,31 @@ namespace ProjetSynthese.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Votre numéro de réservation est le: XXXXXXX \n Merci d'avoir fait affaire avec Hotel Jose!");
-            this.Close();
-            
+            if (comboBoxRes.Text != "Cliquez pour derrouler les options")
+            {
+                if (comboBoxRes.Text == "Chambre: Suite" || comboBoxRes.Text ==  "Chambre: Régulière")
+                {
+                    Chambre ch;
+                    
+                }
+            }
+            MessageBox.Show("Voici votre facture \n" + c.ToString() + "\n\nMerci d'avoir fait affaire avec Hotel Jose!");
+            this.Close(); 
+        }
+
+        //Instanciation d'un objet client pour l'amener dans ce formulaire avec la methode au dessus
+        Client c;
+        /// <summary>
+        /// Methode qui envoie le client qui fait la reservation
+        /// </summary>
+        /// <param name="cl">Client qui reserve</param>
+        public void Resclient(Client cl) {
+            c = cl;
+        }
+
+        private void comboBoxRes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

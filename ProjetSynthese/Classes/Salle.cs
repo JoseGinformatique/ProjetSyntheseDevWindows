@@ -23,7 +23,7 @@ namespace ProjetSynthese
             set { status = value; }
         }
 
-        public Salle(int p_num_reservation, int p_prix, string p_nom, bool p_status)
+        public Salle(string p_num_reservation = "xx", int p_prix = 100, string p_nom = "xx", bool p_status = false)
             : base(p_num_reservation, p_prix)
         {
             this.Nom = p_nom;
