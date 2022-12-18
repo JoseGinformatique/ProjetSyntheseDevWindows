@@ -36,6 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Nouveau_client = new System.Windows.Forms.Label();
+            this.labelErrNum = new System.Windows.Forms.Label();
+            this.labelErrMdp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Connection
@@ -106,11 +108,37 @@
             this.Nouveau_client.Text = "Nouveau client";
             this.Nouveau_client.Click += new System.EventHandler(this.Nouveau_client_Click);
             // 
+            // labelErrNum
+            // 
+            this.labelErrNum.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelErrNum.AutoSize = true;
+            this.labelErrNum.Location = new System.Drawing.Point(91, 166);
+            this.labelErrNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelErrNum.Name = "labelErrNum";
+            this.labelErrNum.Size = new System.Drawing.Size(0, 13);
+            this.labelErrNum.TabIndex = 15;
+            // 
+            // labelErrMdp
+            // 
+            this.labelErrMdp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelErrMdp.AutoSize = true;
+            this.labelErrMdp.Location = new System.Drawing.Point(91, 262);
+            this.labelErrMdp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelErrMdp.Name = "labelErrMdp";
+            this.labelErrMdp.Size = new System.Drawing.Size(0, 13);
+            this.labelErrMdp.TabIndex = 15;
+            // 
             // ConClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 450);
+            this.Controls.Add(this.labelErrMdp);
+            this.Controls.Add(this.labelErrNum);
             this.Controls.Add(this.MotDePasse);
             this.Controls.Add(this.Numero_client);
             this.Controls.Add(this.Nouveau_client);
@@ -137,5 +165,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Nouveau_client;
+        private System.Windows.Forms.Label labelErrNum;
+        private System.Windows.Forms.Label labelErrMdp;
     }
 }

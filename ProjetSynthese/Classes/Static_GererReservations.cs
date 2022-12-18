@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetSynthese.Classes
+
+
+
+
+namespace ProjetSynthese
 {
-    internal class Static_GererReservations
+    public static class Static_GererReservations
     {
-        // la liste des Chambres
+
+        /// la liste des Chambres
         /// Liste dérivée des objets de la classe Chambre
         private static List<Chambre> listChambre = new List<Chambre>();
 
@@ -37,5 +42,7 @@ namespace ProjetSynthese.Classes
             LsChambre = listChambre;
             LsSalle = listSalle;
         }
+
+
     }
 }

@@ -39,6 +39,10 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelErrNom = new System.Windows.Forms.Label();
+            this.labelErrPrenom = new System.Windows.Forms.Label();
+            this.labelErrMdp = new System.Windows.Forms.Label();
+            this.labelErrDate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -134,11 +138,63 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // labelErrNom
+            // 
+            this.labelErrNom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelErrNom.AutoSize = true;
+            this.labelErrNom.Location = new System.Drawing.Point(143, 175);
+            this.labelErrNom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelErrNom.Name = "labelErrNom";
+            this.labelErrNom.Size = new System.Drawing.Size(0, 13);
+            this.labelErrNom.TabIndex = 14;
+            // 
+            // labelErrPrenom
+            // 
+            this.labelErrPrenom.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelErrPrenom.AutoSize = true;
+            this.labelErrPrenom.Location = new System.Drawing.Point(143, 262);
+            this.labelErrPrenom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelErrPrenom.Name = "labelErrPrenom";
+            this.labelErrPrenom.Size = new System.Drawing.Size(0, 13);
+            this.labelErrPrenom.TabIndex = 14;
+            // 
+            // labelErrMdp
+            // 
+            this.labelErrMdp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelErrMdp.AutoSize = true;
+            this.labelErrMdp.Location = new System.Drawing.Point(143, 352);
+            this.labelErrMdp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelErrMdp.Name = "labelErrMdp";
+            this.labelErrMdp.Size = new System.Drawing.Size(0, 13);
+            this.labelErrMdp.TabIndex = 14;
+            // 
+            // labelErrDate
+            // 
+            this.labelErrDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelErrDate.AutoSize = true;
+            this.labelErrDate.Location = new System.Drawing.Point(143, 442);
+            this.labelErrDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelErrDate.Name = "labelErrDate";
+            this.labelErrDate.Size = new System.Drawing.Size(0, 13);
+            this.labelErrDate.TabIndex = 14;
+            // 
             // NouveauClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 616);
+            this.Controls.Add(this.labelErrDate);
+            this.Controls.Add(this.labelErrMdp);
+            this.Controls.Add(this.labelErrPrenom);
+            this.Controls.Add(this.labelErrNom);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBoxmdp);
@@ -170,5 +226,9 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelErrNom;
+        private System.Windows.Forms.Label labelErrPrenom;
+        private System.Windows.Forms.Label labelErrMdp;
+        private System.Windows.Forms.Label labelErrDate;
     }
 }

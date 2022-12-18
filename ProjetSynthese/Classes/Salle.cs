@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetSynthese
 {
-    internal class Salle: Reservation
+    public class Salle: Reservation
     {
         private string nom;
         private bool status;
@@ -28,6 +28,7 @@ namespace ProjetSynthese
         {
             this.Nom = p_nom;
             this.Status = p_status;
+            
         }
     }
 }

@@ -60,10 +60,16 @@ namespace ProjetSynthese
             this.Prenom = p_prenom;
             this.Age = p_age;
         }
-
+        
         public override string ToString()
         {
             return "Numéro client: " + this.Num_client + "Nom: " + this.Nom + "Prénom: " + this.Prenom;
+        }
+        public int CalcAge(DateTime date)
+        {
+            // CETTE METHODE À ÉTÉ INSPIRÉ DU CODE "projet_intra" FAIT PAR Louis-Carl Proulx
+            int age = (int)((DateTime.Now - date).TotalDays / 365.24199);
+            return age;
         }
     }
 }

@@ -21,14 +21,10 @@ namespace ProjetSynthese.Forms
 
         private void Tarifs_Load(object sender, EventArgs e)
         {
-            //Configurer la connection avec la base de données
-            String connectionString = ConfigurationManager.ConnectionStrings["cnxSqlServer"].ConnectionString;
-            SqlConnection cnx = new SqlConnection();
-            cnx.ConnectionString = connectionString;
-            string Query = "SELECT * from TarifsChambres";
-            SqlCommand command = new SqlCommand(Query, cnx);
-            cnx.Open();
-            SqlDataReader resultat = command.ExecuteReader();
+
+            //Ouvre une connection avec la base de donné avec une commande
+            SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("SELECT * from TarifsChambres");
+
             //résultat est une table avec des lignes et des colonnes
             //On va boucler sur cette table
 
@@ -45,11 +41,10 @@ namespace ProjetSynthese.Forms
                 MessageBox.Show("La table Chambres est vide.");
             resultat.Close();
 
-            string Query2 = "SELECT * from TarifsSalles";
-            SqlCommand command2 = new SqlCommand(Query2, cnx);
-            SqlDataReader resultat2 = command2.ExecuteReader();
+
             //résultat est une table avec des lignes et des colonnes
             //On va boucler sur cette table
+            SqlDataReader resultat2 = Static_Autentification.OuvrirConnectionBase("SELECT * from TarifsSalles");
 
             if (resultat2.HasRows) //On vérifie si la table n'est pas vide
             {
