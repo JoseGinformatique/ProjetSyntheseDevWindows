@@ -35,7 +35,7 @@ namespace ProjetSynthese.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonConfirmer_Click(object sender, EventArgs e)
         {
 
             Client cl = new Client();
@@ -76,6 +76,11 @@ namespace ProjetSynthese.Forms
 
             
         }
+        /// <summary>
+        /// Methode pour verifier tous les parametres entrées
+        /// </summary>
+        /// <param name="cl"></param>
+        /// <returns>1 si tout est correct et 2 si non</returns>
         public int VerifierTous(Client cl)
         {
             //Déclaration des booléens de validation des informations entrées

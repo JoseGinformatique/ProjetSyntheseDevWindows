@@ -152,6 +152,7 @@ namespace ProjetSynthese
 
         private void AdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Ouvrir le fomulaire de connection admin
             ConAdmin formulaire = new ConAdmin(); // Création d'une instance 
             formulaire.MdiParent = this; // définir le formulaire parent
             formulaire.Show(); // affichage du formulaire enfant

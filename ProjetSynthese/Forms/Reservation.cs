@@ -76,7 +76,7 @@ namespace ProjetSynthese.Forms
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonConfirmer_Click(object sender, EventArgs e)
         {
             labelErr.Text = string.Empty;
             bool bl_mess = true;
@@ -190,7 +190,7 @@ namespace ProjetSynthese.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
         }

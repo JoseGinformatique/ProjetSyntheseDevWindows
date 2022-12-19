@@ -65,11 +65,13 @@ namespace ProjetSynthese.Forms
             // Si on utilise le fomulaire modifié pour reserver
             if (button1.Text == "Reserver!")
             {
-
+                //Ce paragraphe va chercher l'index de la selection par la souris
+                //et va chercher la valeur de la premiere colonne qui est le numero du client
                 int index = dataGridView1.CurrentCell.RowIndex;
                 DataGridViewRow row = dataGridView1.Rows[index];
                 string num_cl = row.Cells[0].Value.ToString();
 
+                // aller chercher le bon compte du client
                 Client cli = new Client();
                 foreach (Client cl in Static_Autentification.LsClients)
                 {
@@ -80,9 +82,9 @@ namespace ProjetSynthese.Forms
                     }
                 }
 
-
-
-                if (ch_res.Prix > 0)
+                // si le prix est plus grand que 0 c'est n'est pas une valeur par defaux alors on veut ajouter une reservation
+                // a une chambre
+                if (ch_res.Prix > 0) 
                 {
                     foreach (Chambre c in Static_GererReservations.LsChambre)
                     {
@@ -104,6 +106,9 @@ namespace ProjetSynthese.Forms
                         }
                     }
                 }
+
+                // si le prix est plus grand que 0 c'est n'est pas une valeur par defaux alors on veut ajouter une reservation
+                // a une salle
                 else if (sal_res.Prix > 0)
                 {
                     foreach (Salle sa in Static_GererReservations.LsSalle)
@@ -131,6 +136,7 @@ namespace ProjetSynthese.Forms
             }
             else
             {
+                // si on n'est pas dans le fomulaire modifié on veux juste ouvrir le fomulaire pour créer un nouveau client
                 NouveauClient formulaire = new NouveauClient(); // Création d'une instance 
                 formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
                 formulaire.Show(); // affichage du formulaire enfant
@@ -166,7 +172,7 @@ namespace ProjetSynthese.Forms
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonSupprimer_Click(object sender, EventArgs e)
         {
             //bool ver = true;
             int index = dataGridView1.CurrentCell.RowIndex;
