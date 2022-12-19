@@ -9,6 +9,18 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+/*/
+ * Titre: Projet Synthese
+ * Fait par: Jose Luis Gutierrez
+ * # etd: 2146130
+ * 
+ * CE CODE CONTIENS DES PARTIES DE CODE INSPIRÉES PAR
+ * 
+ *****  Hasna Hocini  ***** (SOLUTIONNAIRE "GestElection")
+ *
+ ***** www.w3schools.blog *******
+ *
+ */
 
 namespace ProjetSynthese.Forms
 {
@@ -21,8 +33,10 @@ namespace ProjetSynthese.Forms
 
         public void GereRes_Load(object sender, EventArgs e)
         {
+            // personaliser l'entête de la page selon le compte admin ouvert
             label3.Text = "Vous êtes sur le compte de: " + admin.Prenom + " " +  admin.Nom + " - Gerer les Reservations";
 
+            // pour raffraichir ou efface tous les items des datagrids
             dataGridViewChambres.Rows.Clear();
             dataGridViewSalles.Rows.Clear();
 
@@ -67,13 +81,13 @@ namespace ProjetSynthese.Forms
                     dataGridViewSalles.Rows.Add(resultat2[0], resultat2[1] + " $", resultat2[2], stat, resultat2[4]);
                 }
             }
-            else
-                MessageBox.Show("La table Salles est vide.");
-            resultat2.Close();
+            else { MessageBox.Show("La table Salles est vide."); }
+            resultat2.Close(); //fermer la connection de la base de données
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            //ouvir le formulaire de modification des clients
             ModifClient formulaire = new ModifClient(); // Création d'une instance 
             formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
             formulaire.Show(); // affichage du formulaire enfant
@@ -84,18 +98,19 @@ namespace ProjetSynthese.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonReserverChambre_Click(object sender, EventArgs e)
         {
+            //Ce paragraphe va chercher l'index de la selection par la souris
+            //et va chercher la valeur de la premiere colonne qui est le numero de la chambre
             bool ver=true;
             int index = dataGridViewChambres.CurrentCell.RowIndex;
             DataGridViewRow row = dataGridViewChambres.Rows[index];
             string num_ch = row.Cells[0].Value.ToString();
             
-
+            //passer à travers la liste des chambres pour trouver celle qui correspond à la valeur selectionnée
             foreach (Chambre ch in Static_GererReservations.LsChambre)
             {
-                //MessageBox.Show(ch.Status.ToString())
-                if (num_ch == ch.Num_Reservation && !ch.Status)
+                if (num_ch == ch.Num_Reservation && !ch.Status) //le if va chercher le status de libre ou ocupé
                 {
                     ModifClient formulaire = new ModifClient(); // Création d'une instance 
                     formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
@@ -106,6 +121,7 @@ namespace ProjetSynthese.Forms
                     break;
                 }
             }
+            // si la boucle ne trouve pas une coincidence la chambre est ocupé et donc on ne peut la reserver de nouvau
             if (ver) {MessageBox.Show("Veuillez choisir une chambre qui n'est pas occupée"); }
 
             
@@ -115,21 +131,24 @@ namespace ProjetSynthese.Forms
         //Instanciation d'un objet Administrateur pour l'amener dans ce formulaire avec la methode au dessus
         Administrateur admin;
         /// <summary>
-        /// 
+        /// methode pour aporter le compte de l'administrateur qui vient de se connecter
         /// </summary>
-        /// <param name="adm"></param>
+        /// <param name="adm">Administrateur</param>
         public void AdminSurPage(Administrateur adm)
         {
             admin = adm;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonMarquerLibreChambre_Click(object sender, EventArgs e)
         {
+            //Ce paragraphe va chercher l'index de la selection par la souris
+            //et va chercher la valeur de la premiere colonne qui est le numero de la chambre
             bool ver = true;
             int index = dataGridViewChambres.CurrentCell.RowIndex;
             DataGridViewRow row = dataGridViewChambres.Rows[index];
             string num_ch = row.Cells[0].Value.ToString();
 
+            //passer à travers la liste des chambres pour trouver celle qui correspond à la valeur selectionnée
             foreach (Chambre ch in Static_GererReservations.LsChambre)
             {
                 //MessageBox.Show(ch.Status.ToString())
@@ -154,13 +173,15 @@ namespace ProjetSynthese.Forms
         }
 
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonSeDeconnecter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonReserverSalle_Click(object sender, EventArgs e) 
+            //Même procedure que buttonReserverChambre_click()
+            //Voir commentaires plus détaillés sur l'autre bouton
         {
             bool ver = true;
             int index = dataGridViewSalles.CurrentCell.RowIndex;
@@ -170,7 +191,6 @@ namespace ProjetSynthese.Forms
 
             foreach (Salle sal in Static_GererReservations.LsSalle)
             {
-                //MessageBox.Show(ch.Status.ToString())
                 if (num_sa == sal.Num_Reservation && !sal.Status)
                 {
                     ModifClient formulaire = new ModifClient(); // Création d'une instance 
@@ -191,8 +211,11 @@ namespace ProjetSynthese.Forms
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonMarquerLibreSalle_Click(object sender, EventArgs e)
         {
+            //Même procedure que buttonMarquerLibreChambre_Click()
+            //Voir commentaires plus détaillés sur l'autre bouton
+
             bool ver = true;
             int index = dataGridViewSalles.CurrentCell.RowIndex;
             DataGridViewRow row = dataGridViewSalles.Rows[index];
@@ -200,7 +223,6 @@ namespace ProjetSynthese.Forms
 
             foreach (Salle sa in Static_GererReservations.LsSalle)
             {
-                //MessageBox.Show(ch.Status.ToString())
                 if (num_sa == sa.Num_Reservation && sa.Status)
                 {
 

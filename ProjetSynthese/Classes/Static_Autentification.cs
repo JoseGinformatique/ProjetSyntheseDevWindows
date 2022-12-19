@@ -8,6 +8,18 @@ using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Configuration;
 using System.Data.SqlClient;
+/*/
+ * Titre: Projet Synthese
+ * Fait par: Jose Luis Gutierrez
+ * # etd: 2146130
+ * 
+ * CE CODE CONTIENS DES PARTIES DE CODE INSPIRÉES PAR
+ * 
+ *****  Hasna Hocini  ***** (SOLUTIONNAIRE "GestElection")
+ *
+ ***** www.w3schools.blog *******
+ *
+ */
 
 namespace ProjetSynthese
 {
@@ -19,6 +31,10 @@ namespace ProjetSynthese
         /// Liste dérivée des objets de la classe Client
         private static List<Client> listClients = new List<Client>();
 
+        /// <summary>
+        /// Champ public pour la propriété privée
+        /// LsClients liste des clients
+        /// </summary>
         public static List<Client> LsClients
         {
             get { return listClients; }
@@ -29,6 +45,10 @@ namespace ProjetSynthese
         /// Liste orivée des objets de la classe Administrateur
         private static List<Administrateur> listAdmin = new List<Administrateur>();
 
+        /// <summary>
+        /// Champ public pour la propriété privée
+        /// LsAdmin liste des administrateurs
+        /// </summary>
         public static List<Administrateur> LsAdmin
         {
             get { return listAdmin; }

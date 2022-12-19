@@ -164,7 +164,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Reserver";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.buttonReserverChambre_Click);
             // 
             // button2
             // 
@@ -175,7 +175,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Marquer comme libre";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.buttonMarquerLibreChambre_Click);
             // 
             // button3
             // 
@@ -186,7 +186,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Reserver";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.buttonReserverSalle_Click);
             // 
             // button4
             // 
@@ -197,7 +197,7 @@
             this.button4.TabIndex = 2;
             this.button4.Text = "Marquer comme libre";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.buttonMarquerLibreSalle_Click);
             // 
             // label3
             // 
@@ -218,7 +218,7 @@
             this.button5.TabIndex = 2;
             this.button5.Text = "Se deconnecter";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.buttonSeDeconnecter_Click);
             // 
             // button6
             // 

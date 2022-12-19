@@ -8,6 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+/*/
+ * Titre: Projet Synthese
+ * Fait par: Jose Luis Gutierrez
+ * # etd: 2146130
+ * 
+ * CE CODE CONTIENS DES PARTIES DE CODE INSPIRÉES PAR
+ * 
+ *****  Hasna Hocini  ***** (SOLUTIONNAIRE "GestElection")
+ *
+ ***** www.w3schools.blog *******
+ *
+ */
 
 namespace ProjetSynthese.Forms
 {
@@ -20,6 +32,7 @@ namespace ProjetSynthese.Forms
 
         public void ChangerformReserver()
         {
+            // Adapter le formulaire pour réserver une chambre ou une salle
             button1.Text = "Reserver!";
             button2.Visible = false;
             label1.Text = "Veuillez choisir un client existant ou revenez sur l'onglet \"Gerer les reservations\" pour ajouter un nouveau";
@@ -27,12 +40,11 @@ namespace ProjetSynthese.Forms
 
         private void ModifClient_Load(object sender, EventArgs e)
         {
+            // Pour raffraichir on efface les items du tableau
             dataGridView1.Rows.Clear();
+
             //Ouvre une connection avec la base de donné avec une commande
             SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("SELECT * from Clients");
-
-            //résultat est une table avec des lignes et des colonnes
-            //On va boucler sur cette table
 
             if (resultat.HasRows) //On vérifie si la table n'est pas vide
             {
@@ -50,11 +62,14 @@ namespace ProjetSynthese.Forms
 
         private void button_ajouter_reserver_Click(object sender, EventArgs e)
         {
+            // Si on utilise le fomulaire modifié pour reserver
             if (button1.Text == "Reserver!")
             {
+
                 int index = dataGridView1.CurrentCell.RowIndex;
                 DataGridViewRow row = dataGridView1.Rows[index];
                 string num_cl = row.Cells[0].Value.ToString();
+
                 Client cli = new Client();
                 foreach (Client cl in Static_Autentification.LsClients)
                 {

@@ -7,6 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+/*/
+ * Titre: Projet Synthese
+ * Fait par: Jose Luis Gutierrez
+ * # etd: 2146130
+ * 
+ * CE CODE CONTIENS DES PARTIES DE CODE INSPIRÉES PAR
+ * 
+ *****  Hasna Hocini  ***** (SOLUTIONNAIRE "GestElection")
+ *
+ ***** www.w3schools.blog *******
+ *
+ */
 
 namespace ProjetSynthese.Forms
 {
@@ -21,21 +33,23 @@ namespace ProjetSynthese.Forms
         {
 
         }
-
+        
         private void Connection_Click(object sender, EventArgs e)
         {
+            //Verification du numero de l'adminstrateur avec un regex
             labelErrMdp.Text = string.Empty;
             bool b_num, b_ver;
             b_ver = false;
             b_num = Static_Autentification.VerifierRegex("^[0-9]{6}$", Numero_admin, labelErrNum, "Votre numero doit être un chiffre à 6 caractères");
 
-            if (b_num)
+            if (b_num)// si le regex est respecté
             {
+                //passer à travers tous les admin pour trouver le bon compte
                 foreach (Administrateur ad in Static_Autentification.LsAdmin)
                 {
                     if (b_num && Int32.Parse(Numero_admin.Text) == ad.Num_admin && MotDePasse.Text == ad.Mot_de_passe)
                     {
-
+                        // ouvrir le fomulaire pour faire la gestion des reservations
                         GereRes formulaire = new GereRes(); // Création d'une instance 
                         formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
                         formulaire.AdminSurPage(ad);
@@ -47,6 +61,7 @@ namespace ProjetSynthese.Forms
                     }
                 }
             }
+            // si la boucle n'a pas trouvé le compte et que le regex est bon
             if (!b_ver && b_num)
             {
                 labelErrMdp.ForeColor = Color.Red;
