@@ -68,6 +68,7 @@
             this.dataGridViewSalles.Name = "dataGridViewSalles";
             this.dataGridViewSalles.Size = new System.Drawing.Size(543, 379);
             this.dataGridViewSalles.TabIndex = 0;
+            this.dataGridViewSalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSalles_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -185,6 +186,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Reserver";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -195,6 +197,7 @@
             this.button4.TabIndex = 2;
             this.button4.Text = "Marquer comme libre";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 

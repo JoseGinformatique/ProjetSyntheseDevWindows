@@ -1,12 +1,14 @@
-﻿using System;
+﻿using ProjetSynthese;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProjetSynthese
 {
-    public class Client
+    public class Client : Imessage
     {
         private int num_client;
         private string mot_de_passe;
@@ -69,6 +71,15 @@ namespace ProjetSynthese
         {
             int age = (int)((DateTime.Now - date).TotalDays / 365.24199);
             return age;
+        }
+
+
+        /// <summary>
+        /// Methode Interface qui affiche une phrase au client
+        /// </summary>
+        public void Phrase()
+        {
+            MessageBox.Show("vos désirs sont des ordres!");
         }
     }
 }

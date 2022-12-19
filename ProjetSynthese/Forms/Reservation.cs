@@ -27,7 +27,7 @@ namespace ProjetSynthese.Forms
         /// Methode pour changer le statut d'occupé dans la chambre
         /// </summary>
         /// <param name="ch"></param>
-        public void ChangerStatutChambre(Chambre ch)
+        void ChangerStatutChambre(Chambre ch)
         {
             // on change le status de la chambre à true pour dire qu'elle est prise
             ch.Status = true;
@@ -48,7 +48,7 @@ namespace ProjetSynthese.Forms
         /// Methode pour changer le statut d'occupé dans la salle
         /// </summary>
         /// <param name="sl"></param>
-        public void ChangerStatutSalle(Salle sl)
+        void ChangerStatutSalle(Salle sl)
         {
             // on change le status de la salle à true pour dire qu'elle est prise
             sl.Status = true;
@@ -82,6 +82,7 @@ namespace ProjetSynthese.Forms
                         {
                             ChangerStatutChambre(ch);
                             bl_mess = false;
+                            c.Phrase(); //afficher message "fun" au client 
                             break;
                         }
                         //Si on trouve une chambre de type Suite Régulière
@@ -89,6 +90,7 @@ namespace ProjetSynthese.Forms
                         {
                             ChangerStatutChambre(ch);
                             bl_mess = false;
+                            c.Phrase(); //afficher message "fun" au client 
                             break;
                         }
                     }
@@ -108,6 +110,7 @@ namespace ProjetSynthese.Forms
                         {
                             ChangerStatutSalle(sl);
                             bl_mess = false;
+                            c.Phrase(); //afficher message "fun" au client 
                             break;
                         }
                         //Si on trouve une salle du nom Cinema libre (il faut specifier A ou B, car il va chercher le nom exact de salle)
@@ -116,12 +119,14 @@ namespace ProjetSynthese.Forms
                         {
                             ChangerStatutSalle(sl);
                             bl_mess = false;
+                            c.Phrase(); //afficher message "fun" au client 
                             break;
                         }
                         else if (comboBoxRes.Text == "Salle: Cinema" && sl.Nom == "Cinema B" && sl.Status == false)
                         {
                             ChangerStatutSalle(sl);
                             bl_mess = false;
+                            c.Phrase(); //afficher message "fun" au client 
                             break;
                         }
                         //Si on trouve une salle du nom Salle de reunions libre
@@ -130,12 +135,14 @@ namespace ProjetSynthese.Forms
                         {
                             ChangerStatutSalle(sl);
                             bl_mess = false;
+                            c.Phrase(); //afficher message "fun" au client 
                             break;
                         }
                         else if (comboBoxRes.Text == "Salle: Salle de reunions" && sl.Nom == "Salle de reunions B" && sl.Status == false)
                         {
                             ChangerStatutSalle(sl);
                             bl_mess = false;
+                            c.Phrase(); //afficher message "fun" au client 
                             break;
                         }
                     }
@@ -146,6 +153,7 @@ namespace ProjetSynthese.Forms
                         labelErr.Text = "Aucune Salle de avec cette description n'est disponible pour réserver";
                     }
                 }
+                
             }
             
         }
@@ -165,6 +173,11 @@ namespace ProjetSynthese.Forms
 
         }
 
+        /// <summary>
+        /// bouton qui annule ou ferme le formulaire
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

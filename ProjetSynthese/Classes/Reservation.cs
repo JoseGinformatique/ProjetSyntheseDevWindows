@@ -27,5 +27,7 @@ namespace ProjetSynthese
             this.Num_Reservation = p_num_reservation;
             this.Prix = p_prix;
         }
+
+        
     }
 }

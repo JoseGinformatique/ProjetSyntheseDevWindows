@@ -153,9 +153,72 @@ namespace ProjetSynthese.Forms
             if (ver) { MessageBox.Show("Veuillez choisir une chambre qui est occupée"); }
         }
 
+
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            bool ver = true;
+            int index = dataGridViewSalles.CurrentCell.RowIndex;
+            DataGridViewRow row = dataGridViewSalles.Rows[index];
+            string num_sa = row.Cells[0].Value.ToString();
+
+
+            foreach (Salle sal in Static_GererReservations.LsSalle)
+            {
+                //MessageBox.Show(ch.Status.ToString())
+                if (num_sa == sal.Num_Reservation && !sal.Status)
+                {
+                    ModifClient formulaire = new ModifClient(); // Création d'une instance 
+                    formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
+                    formulaire.SalleAreserver(sal);
+                    formulaire.ChangerformReserver();
+                    formulaire.Show(); // affichage du formulaire enfant
+                    ver = false;
+                    break;
+                }
+            }
+            if (ver) { MessageBox.Show("Veuillez choisir une salle qui n'est pas occupée"); }
+
+        }
+
+        private void dataGridViewSalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            bool ver = true;
+            int index = dataGridViewSalles.CurrentCell.RowIndex;
+            DataGridViewRow row = dataGridViewSalles.Rows[index];
+            string num_sa = row.Cells[0].Value.ToString();
+
+            foreach (Salle sa in Static_GererReservations.LsSalle)
+            {
+                //MessageBox.Show(ch.Status.ToString())
+                if (num_sa == sa.Num_Reservation && sa.Status)
+                {
+
+                    sa.Status = false;
+
+                    //On change les valeur dans la base de données pour que la chambre apparaise comme occupée
+                    //On instacie aussi cet evenement dans la "troisième" table qui suit la trace du numero de reservation et du numero du client
+                    SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("UPDATE Salles SET [Status] = 0 WHERE NumeroReservation = '"
+                        + sa.Num_Reservation + "'" + "\nDELETE FROM Reservations\r\nWHERE num_reservation = '" + sa.Num_Reservation + "'");
+
+                    resultat.Close();
+                    MessageBox.Show("La salle à bien été marquée comme libre veuillez raffraichir pour voir le changement");
+
+                    ver = false;
+                    break;
+                }
+            }
+            if (ver) { MessageBox.Show("Veuillez choisir une salle qui est occupée"); }
         }
     }
 }

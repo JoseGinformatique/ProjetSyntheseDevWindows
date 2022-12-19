@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ProjetSynthese
 {
@@ -23,7 +24,7 @@ namespace ProjetSynthese
             set { status = value; }
         }
 
-        public Salle(string p_num_reservation = "xx", int p_prix = 100, string p_nom = "xx", bool p_status = false)
+        public Salle(string p_num_reservation = "xx", int p_prix = 0, string p_nom = "xx", bool p_status = false)
             : base(p_num_reservation, p_prix)
         {
             this.Nom = p_nom;

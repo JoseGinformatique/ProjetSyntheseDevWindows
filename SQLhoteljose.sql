@@ -135,6 +135,19 @@ SELECT * FROM Chambres
 SELECT * FROM Reservations
 SELECT * FROM Salles
 SELECT * FROM Clients
+SELECT * FROM V_SALLES
+GO
+
+SELECT * FROM Reservations WHERE client = 100001
+
+UPDATE Salles SET [Status] = 1 WHERE NumeroReservation = 'B3'
+INSERT INTO Reservations VALUES('B3', 100002);
+
+DELETE FROM Reservations
+WHERE num_reservation = 'A3'
+GO
+DELETE FROM Clients
+WHERE num_client = 100003
 GO
 
 CREATE TRIGGER trig_reserv

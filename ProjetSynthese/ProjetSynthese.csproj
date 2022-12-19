@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Imessage.cs" />
     <Compile Include="Classes\Static_GererReservations.cs" />
     <Compile Include="Classes\DelegueTrieurDeTableau.cs" />
     <Compile Include="Classes\Static_Autentification.cs" />

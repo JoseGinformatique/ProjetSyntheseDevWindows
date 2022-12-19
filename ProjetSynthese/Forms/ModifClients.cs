@@ -48,7 +48,7 @@ namespace ProjetSynthese.Forms
             resultat.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_ajouter_reserver_Click(object sender, EventArgs e)
         {
             if (button1.Text == "Reserver!")
             {
@@ -65,25 +65,53 @@ namespace ProjetSynthese.Forms
                     }
                 }
 
-                foreach (Chambre c in Static_GererReservations.LsChambre)
+
+
+                if (ch_res.Prix > 0)
                 {
-                    if (ch_res.Num_Reservation == c.Num_Reservation)
+                    foreach (Chambre c in Static_GererReservations.LsChambre)
                     {
-                        // on change le status de la chambre à true pour dire qu'elle est prise
-                        c.Status = true;
-                        //Afficher la facture du client avec ses informations et le numero de sa chambre
-                        MessageBox.Show("Voici votre facture \n" + cli.ToString() + "\nChambre: " + c.Num_Reservation +
-                            "\n\nMerci d'avoir fait affaire avec Hotel Jose!");
-                        //On instacie aussi cet evenement dans la "troisième" table qui suit la trace du numero de reservation et du numero du client
-                        SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("UPDATE Chambres SET [Status] = 1 WHERE NumeroReservation = '"
-                            + c.Num_Reservation + "'" + "\nINSERT INTO Reservations\nVALUES\t('" + c.Num_Reservation + "', " + num_cl + ")");
-                       
-                        resultat.Close();
-                        this.Close();
-                        MessageBox.Show("veuillez raffraichir la page pour voir les changements");
-                        break;
+                        if (ch_res.Num_Reservation == c.Num_Reservation)
+                        {
+                            // on change le status de la chambre à true pour dire qu'elle est prise
+                            c.Status = true;
+                            //Afficher la facture du client avec ses informations et le numero de sa chambre
+                            MessageBox.Show("Voici votre facture \n" + cli.ToString() + "\nChambre: " + c.Num_Reservation +
+                                "\n\nMerci d'avoir fait affaire avec Hotel Jose!");
+                            //On instacie aussi cet evenement dans la "troisième" table qui suit la trace du numero de reservation et du numero du client
+                            SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("UPDATE Chambres SET [Status] = 1 WHERE NumeroReservation = '"
+                                + c.Num_Reservation + "'" + "\nINSERT INTO Reservations\nVALUES\t('" + c.Num_Reservation + "', " + num_cl + ")");
+
+                            resultat.Close();
+                            this.Close();
+                            MessageBox.Show("veuillez raffraichir la page pour voir les changements");
+                            break;
+                        }
                     }
                 }
+                else if (sal_res.Prix > 0)
+                {
+                    foreach (Salle sa in Static_GererReservations.LsSalle)
+                    {
+                        if (sal_res.Num_Reservation == sa.Num_Reservation)
+                        {
+                            // on change le status de la chambre à true pour dire qu'elle est prise
+                            sa.Status = true;
+                            //Afficher la facture du client avec ses informations et le numero de sa chambre
+                            MessageBox.Show("Voici votre facture \n" + cli.ToString() + "\nChambre: " + sa.Num_Reservation +
+                                "\n\nMerci d'avoir fait affaire avec Hotel Jose!");
+                            //On instacie aussi cet evenement dans la "troisième" table qui suit la trace du numero de reservation et du numero du client
+                            SqlDataReader resultat = Static_Autentification.OuvrirConnectionBase("UPDATE Salles SET [Status] = 1 WHERE NumeroReservation = '"
+                                + sa.Num_Reservation + "'" + "\nINSERT INTO Reservations\nVALUES\t('" + sa.Num_Reservation + "', " + num_cl + ")");
+
+                            resultat.Close();
+                            this.Close();
+                            MessageBox.Show("veuillez raffraichir la page pour voir les changements");
+                            break;
+                        }
+                    }
+                }
+                
 
             }
             else
@@ -92,21 +120,31 @@ namespace ProjetSynthese.Forms
                 formulaire.MdiParent = this.MdiParent; // définir le formulaire parent
                 formulaire.Show(); // affichage du formulaire enfant
             }
-
-            
-            
         }
 
         //Instanciation d'un objet chambre pour l'amener dans ce formulaire avec la methode au dessus
-        Chambre ch_res;
+        Chambre ch_res = new Chambre();
         /// <summary>
-        /// Methode qui envoie le client qui fait la reservation
+        /// Methode qui envoie la chambre qu'on fait la reservation
         /// </summary>
-        /// <param name="cha">Client qui reserve</param>
+        /// <param name="cha">Chambre qu'on reserve</param>
         public void ChambreAreserver(Chambre cha)
         {
             ch_res = cha;
         }
+
+        //Instanciation d'un objet chambre pour l'amener dans ce formulaire avec la methode au dessus
+        Salle sal_res = new Salle();
+        /// <summary>
+        /// Methode qui envoie la salle qu'on fait la reservation
+        /// </summary>
+        /// <param name="sal">salle qu'on reserve</param>
+        public void SalleAreserver(Salle sal)
+        {
+            sal_res = sal;
+        }
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -146,8 +184,8 @@ namespace ProjetSynthese.Forms
                         Static_Autentification.LsClients.Remove(cl);
                         resultat2.Close();
                     }
-                    break;
                     resultat.Close();
+                    break;
                 }
             }
             //if (ver) { MessageBox.Show("Aucun clien avec ce numero n'a été trouvé"); }
