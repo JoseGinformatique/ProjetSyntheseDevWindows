@@ -34,6 +34,7 @@
             this.ClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AdminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ongletsOuvertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.joseLuisGutierrez2146130ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@
             this.TarifsToolStripMenuItem,
             this.ClientToolStripMenuItem,
             this.AdminToolStripMenuItem,
-            this.ongletsOuvertsToolStripMenuItem});
+            this.ongletsOuvertsToolStripMenuItem,
+            this.joseLuisGutierrez2146130ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.ongletsOuvertsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -81,6 +83,12 @@
             this.ongletsOuvertsToolStripMenuItem.Size = new System.Drawing.Size(119, 23);
             this.ongletsOuvertsToolStripMenuItem.Text = "Onglets ouverts";
             // 
+            // joseLuisGutierrez2146130ToolStripMenuItem
+            // 
+            this.joseLuisGutierrez2146130ToolStripMenuItem.Name = "joseLuisGutierrez2146130ToolStripMenuItem";
+            this.joseLuisGutierrez2146130ToolStripMenuItem.Size = new System.Drawing.Size(195, 23);
+            this.joseLuisGutierrez2146130ToolStripMenuItem.Text = "Jose Luis Gutierrez 2146130";
+            // 
             // MonHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +116,7 @@
         private System.Windows.Forms.ToolStripMenuItem AdminToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TarifsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ongletsOuvertsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem joseLuisGutierrez2146130ToolStripMenuItem;
     }
 }
 
